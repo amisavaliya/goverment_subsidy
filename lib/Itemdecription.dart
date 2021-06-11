@@ -5,8 +5,10 @@ import 'package:get/get.dart';
 import 'model/PopularItem.dart';
 
 class Itemdecription extends StatefulWidget {
-  PopularItem popularItem;
-  Itemdecription({this.popularItem});
+  //PopularItem popularItem;
+  final String name;
+  final String info;
+  Itemdecription({this.name, this.info});
   @override
   _ItemdecriptionState createState() => _ItemdecriptionState();
 }
@@ -18,18 +20,26 @@ class _ItemdecriptionState extends State<Itemdecription> {
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
         leading: InkWell(
-          onTap: (){
+          onTap: () {
             Get.back();
           },
           child: Container(
-            child: Icon(Icons.arrow_back,color: AppColors.primaryColour,size: 20.0,),
+            child: Icon(
+              Icons.arrow_back,
+              color: AppColors.primaryColour,
+              size: 20.0,
+            ),
           ),
         ),
-        title: Text(widget.popularItem.name,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: AppColors.primaryColour),
+        title: Text(
+          widget.name,
+          style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: AppColors.primaryColour),
+        ),
       ),
-
-      ),
-      body: Text(widget.popularItem.info),
+      body: Text(widget.info),
     );
   }
 }
